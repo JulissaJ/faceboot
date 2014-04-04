@@ -1,0 +1,23 @@
+<h2>Edit Post</h2>
+
+<%= simple_form_for(@post) do |f| %>
+    <% if @post.errors.full_messages.count > 0 %>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+      <% end %>
+      </ul>
+  <% end %>
+
+
+
+
+
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.button :submit, 'Submit Post' %>
+<% end %>
+
+
