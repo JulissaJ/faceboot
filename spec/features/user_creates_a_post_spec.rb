@@ -16,10 +16,17 @@ feature 'user adds a post to their wall', %Q{As a user
 
     expect(page).to have_content 'Post was successfully added'
     expect(page).to have_content 'Today at LaunchAcademy'
-    expect(LifeHack.count).to eq(pre_count + 1)
+    expect(Post.count).to eq(prev_count + 1)
   end
 
-  # scenario 'enters invalid lifehack' do
+  scenario 'with invalid attributes' do
+    visit new_post_path
+    fill_in 'Title', with: ''
+    fill_in 'Content', with: ''
 
-  # end
+    click_on 'Submit Post'
+    expect(page).to have_content 'Post or title can\'t be blank'
+  end
+
+
 end

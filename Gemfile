@@ -40,6 +40,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'should'
   gem 'capybara'
+  gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password
