@@ -19,7 +19,24 @@ class PostsController < ApplicationController
     end
   end
 
-  private
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if post_params
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
+  end
+
+  protected
 
   def post_params
     params.require(:post).permit(:title, :content)
