@@ -1,4 +1,5 @@
 Faceboot::Application.routes.draw do
+  devise_for :users
   resources :posts, only: [:new, :index, :create, :edit, :show, :update] do
     resources :comments, only: [:new, :create]
   end
