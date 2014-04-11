@@ -5,27 +5,37 @@ feature 'user adds a post to their wall', %Q{As a user
   so I can share with others
   } do
 
+    context 'as authenticated user' do
 
-  scenario 'successfully adds a posting' do
-    prev_count = Post.count
-    visit new_post_path
-    fill_in 'Title', with: 'My Day Today'
-    fill_in 'Content', with: "Today at LaunchAcademy I learned how to do all these cool things"
+      let(:user){ FactoryGirl.create(:user) }
+      let(:post){ FactoryGirl.create(:post) }
 
-    click_on 'Submit Post'
+      before :each do
+        sign_in_as(user)
+      end
 
-    expect(page).to have_content 'Post was successfully added'
-    expect(page).to have_content 'Today at LaunchAcademy'
-    expect(Post.count).to eq(prev_count + 1)
-  end
 
-  scenario 'with invalid attributes' do
-    visit new_post_path
-    fill_in 'Title', with: ''
-    fill_in 'Content', with: ''
+    scenario 'successfully adds a posting' do
+      prev_count = Post.count
+      visit new_post_path
+      fill_in 'Title', with: 'My Day Today'
+      fill_in 'Content', with: "Today at LaunchAcademy I learned how to do all these cool things"
 
-    click_on 'Submit Post'
-    expect(page).to have_content 'Post or title can\'t be blank'
+      click_on 'Submit Post'
+
+      expect(page).to have_content 'Post was successfully added'
+      expect(page).to have_content 'Today at LaunchAcademy'
+      expect(Post.count).to eq(prev_count + 1)
+    end
+
+    scenario 'with invalid attributes' do
+      visit new_post_path
+      fill_in 'Title', with: ''
+      fill_in 'Content', with: ''
+
+      click_on 'Submit Post'
+      expect(page).to have_content 'Post or title can\'t be blank'
+    end
   end
 
 

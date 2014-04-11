@@ -26,7 +26,6 @@ feature 'user signs in' , %Q{
     fill_in "Password", with: "WRONG"
 
     click_on "Sign in"
-    save_and_open_page
     expect(page).to_not have_content("You're In!")
     expect(page).to have_content("Invalid email or password.")
 
