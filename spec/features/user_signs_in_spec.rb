@@ -9,7 +9,6 @@ feature 'user signs in' , %Q{
   scenario 'specifying valid and required information' do
     visit root_path
     user = FactoryGirl.create(:user)
-    click_link "Sign In"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
 
@@ -23,11 +22,11 @@ feature 'user signs in' , %Q{
   scenario 'User entering wrong information is given error message and asked to enter correct info' do
     visit root_path
     user = FactoryGirl.create(:user)
-    click_link "Sign In"
     fill_in "Email", with: user.email
     fill_in "Password", with: "WRONG"
 
     click_on "Sign in"
+    save_and_open_page
     expect(page).to_not have_content("You're In!")
     expect(page).to have_content("Invalid email or password.")
 
