@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20140411171516) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name",                                null: false
-    t.string   "username",                            null: false
+    t.string   "first_name",             default: "", null: false
+    t.string   "last_name",              default: "", null: false
+    t.string   "username",               default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -49,5 +50,6 @@ ActiveRecord::Schema.define(version: 20140411171516) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

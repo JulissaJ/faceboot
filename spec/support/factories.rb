@@ -11,7 +11,8 @@ FactoryGirl.define do
   end
 
   factory :user do
-    name 'Sterling Archer'
+    first_name 'Sterling'
+    last_name 'Archer'
     sequence :username do |u|
       "blackturtleneck#{u}"
     end
