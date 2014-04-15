@@ -17,7 +17,7 @@
             <nav class= 'top-bar'>
                   <ul class= 'title-area'>
                     <li class="name">
-                      <h2><%= link_to "Faceboot", posts_path %> </h2>
+                      <h1><%= link_to "Faceboot", posts_path %> </h1>
                     </li>
                   </ul>
                   <section class="top-bar-section">
@@ -48,5 +48,6 @@
     </div>
     </div>
     <%= javascript_include_tag "application" %>
+    <%= yield :extra_footer %>
   </body>
 </html>

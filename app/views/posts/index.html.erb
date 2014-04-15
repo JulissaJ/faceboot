@@ -1,25 +1,20 @@
 <h1> Posts </h1>
 
-  <form class="status-update">
+
   <div class="row">
-    <div class="small-12 columns">
-      <label>Update your status
-        <textarea placeholder="I'm having a great day!"></textarea>
-      </label>
+    <div class="small-8 columns post_form">
+      <%= simple_form_for @post, url: posts_path, method: :post, remote: true do |f| %>
+        <%= f.input :title %>
+        <%= f.input :content %>
+        <%= f.submit class: 'button new-post' %>
+      <% end %>
     </div>
   </div>
-</form>
 
     <div class='posts'>
-    <% @posts.each do |post| %>
+      <%= render @posts %>
     </div>
-    <%= post.content %>
-      <ul class="inline-list post-actions">
-          <li><%= link_to 'Comment', post_path(post) %></li>
-        </ul>
-    <% end %>
-  </tr>
-</table>
+
 
 
 

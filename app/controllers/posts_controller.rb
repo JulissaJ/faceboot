@@ -7,13 +7,16 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:notice] = 'Post was successfully added'
-      redirect_to posts_path
+      respond_to do |format|
+        # format.html {redirect_to @post, notice: 'Post was successfully added'}
+        format.js
+      end
     else
       flash[:notice] = 'Post or title can\'t be blank'
       render :new
