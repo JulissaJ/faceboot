@@ -13,32 +13,40 @@
 
   <body>
     <% if request.env['PATH_INFO'] != new_user_registration_path && request.env['PATH_INFO'] != '/users' %>
+          <div class="contain-to-grid">
             <nav class= 'top-bar'>
                   <ul class= 'title-area'>
-                  <li class="name">
-                  <h2><%= link_to "Faceboot", posts_path %> </h2>
-                  </li>
+                    <li class="name">
+                      <h2><%= link_to "Faceboot", posts_path %> </h2>
+                    </li>
                   </ul>
                   <section class="top-bar-section">
-                  <ul class="right">
-                    <% if !user_signed_in? %>
+                    <ul class="right">
+                      <% if !user_signed_in? %>
 
-                    <li class='active'><%= link_to "Sign Up", new_user_registration_path %></li>
-                    <li class="divider"></li>
-                    <li class='active'><%= link_to "Sign In", new_user_session_path %></li>
-                  <% else %>
-                    <li>Welcome <%= current_user.first_name%></li>
-                    <li class='active'><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-                  <% end %>
-              </ul>
+                      <li class='active'><%= link_to "Sign Up", new_user_registration_path %></li>
+                      <li class="divider"></li>
+                      <li class='active'><%= link_to "Sign In", new_user_session_path %></li>
+                      <% else %>
+                      <li>Welcome <%= current_user.first_name%></li>
+                      <li class='active'><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                      <% end %>
+              <% end %>
+            </ul>
+            </section>
           </nav>
-        <% end %>
+        </div>
 
 
+
+
+    <div class="row">
+    <div class='small-8 column'>
     <p class="notice"><%= flash[:notice] %> </p>
     <p class="notice"><%= flash[:alert] %> </p>
-
     <%= yield %>
+    </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

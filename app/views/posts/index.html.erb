@@ -1,15 +1,25 @@
 <h1> Posts </h1>
-<table>
-  <tr>
-    <td>Title</td>
-    <td>Content</td>
-  </tr>
-  <tr>
+
+  <form class="status-update">
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Update your status
+        <textarea placeholder="I'm having a great day!"></textarea>
+      </label>
+    </div>
+  </div>
+</form>
+
+    <div class='posts'>
     <% @posts.each do |post| %>
-    <td><%= post.title %></td>
-    <td> <%= post.content %> <%= link_to 'Edit', edit_post_path(post) %><%= link_to 'Show', post_path(post) %></td>
+    </div>
+    <%= post.content %>
+      <ul class="inline-list post-actions">
+          <li><%= link_to 'Comment', post_path(post) %></li>
+        </ul>
     <% end %>
   </tr>
 </table>
+
 
 
