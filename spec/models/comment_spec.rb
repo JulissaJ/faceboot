@@ -6,5 +6,6 @@ describe Comment do
   it {should_not have_valid(:body).when(nil,'') }
 
   it { should belong_to(:post) }
+  it { should belong_to(:user) }
 
 end
