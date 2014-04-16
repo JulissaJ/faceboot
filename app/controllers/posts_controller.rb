@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       respond_to do |format|
-        # format.html {redirect_to @post, notice: 'Post was successfully added'}
+        format.html {redirect_to @post, notice: 'Post was successfully added'}
         format.js
       end
     else
