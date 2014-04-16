@@ -1,14 +1,5 @@
 FactoryGirl.define do
 
-  factory :post do
-    content 'Today I learned all these cool things!'
-  end
-
-  factory :comment do
-    body 'First!'
-    post
-  end
-
   factory :user do
     first_name 'Sterling'
     last_name 'Archer'
@@ -20,6 +11,17 @@ FactoryGirl.define do
     end
     password 'password'
     password_confirmation 'password'
+  end
+
+   factory :post do
+    content 'Today I learned all these cool things!'
+    user
+  end
+
+  factory :comment do
+    body 'First!'
+    post
+    user
   end
 
 
