@@ -19,11 +19,10 @@ feature 'user adds a post to their wall', %Q{As a user
 
     scenario 'successfully adds a posting' do
       prev_count = Post.count
-      visit new_post_path
-      fill_in 'Title', with: 'My Day Today'
+      visit posts_path
       fill_in 'Content', with: "Today at LaunchAcademy I learned how to do all these cool things"
 
-      click_on 'Submit Post'
+      click_on 'Create Post'
 
       expect(page).to have_content 'Post was successfully added'
       expect(page).to have_content 'Today at LaunchAcademy'
@@ -31,11 +30,10 @@ feature 'user adds a post to their wall', %Q{As a user
     end
 
     scenario 'with invalid attributes' do
-      visit new_post_path
-      fill_in 'Title', with: ''
+      visit posts_path
       fill_in 'Content', with: ''
 
-      click_on 'Submit Post'
+      click_on 'Create Post'
       expect(page).to have_content 'Post or title can\'t be blank'
     end
   end
