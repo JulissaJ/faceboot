@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 feature 'user adds a post to their wall', %Q{As a user
   I want to make a post

@@ -43,6 +43,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do
+  gem 'poltergeist'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl'
