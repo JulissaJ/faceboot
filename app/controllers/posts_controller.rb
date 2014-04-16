@@ -12,13 +12,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
       respond_to do |format|
         format.html {redirect_to @post, notice: 'Post was successfully added'}
         format.js
       end
     else
-      flash[:notice] = 'Post or title can\'t be blank'
+      flash[:notice] = 'Post can\'t be blank'
       render :new
     end
   end
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
   protected
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:content)
   end
 
 end

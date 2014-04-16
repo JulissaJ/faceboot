@@ -25,7 +25,7 @@ feature 'user can add a comment to a post', %Q{
       fill_in 'Comment', with: 'Wow, that happened to me too!'
       click_on 'Add Comment'
 
-      expect(page).to have_content 'Comment was successfully added'
+
       expect(Comment.count).to eq(prev_count + 1)
     end
   end

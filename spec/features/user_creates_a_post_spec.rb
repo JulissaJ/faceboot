@@ -34,7 +34,7 @@ feature 'user adds a post to their wall', %Q{As a user
       fill_in 'Content', with: ''
 
       click_on 'Create Post'
-      expect(page).to have_content 'Post or title can\'t be blank'
+      expect(page).to have_content 'Post can\'t be blank'
     end
   end
 
