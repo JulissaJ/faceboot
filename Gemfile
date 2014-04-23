@@ -60,6 +60,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'capybara'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 # Use ActiveModel has_secure_password
