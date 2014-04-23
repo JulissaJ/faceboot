@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="css/app.css" />
   </head>
 
   <body>
@@ -40,7 +41,36 @@
         </div>
 
 
-
+      <div class="row">
+      <div class="small-2 columns">
+        <div id="sidebar-left">
+          <div class="favorites">
+            <h5>Local Bootcamps</h5>
+            <ul class="side-nav">
+              <li><a href="www.launchacademy.com">Launch Academy</a></li>
+              <li><a href="https://generalassemb.ly/">General Assembly</a></li>
+              <li><a href="http://www.thisismetis.com/">Metis</a></li>
+              <li><a href="http://www.startupinstitute.com/">Startup Institute</a></li>
+            </ul>
+          </div>
+          <div class="pages">
+            <h5>Pages</h5>
+            <ul class="side-nav">
+              <li><a href="#">Pages Feed</a></li>
+              <li><a href="#">Like Pages</a></li>
+              <li><a href="#">Create Ad</a></li>
+            </ul>
+          </div>
+          <div class="groups">
+            <h5>Groups</h5>
+            <ul class="side-nav">
+              <li><a href="http://www.meetup.com/Boston-Ruby-Women">Boston Ruby Women</a></li>
+              <li><a href="http://www.girldevelopit.com/">Girl Develop It</a></li>
+              <li><a href="http://bostonrb.org/">Boston Ruby</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     <div class="row">
     <div class='small-8 column'>
@@ -49,7 +79,9 @@
     <%= yield %>
     </div>
     </div>
+
     <%= javascript_include_tag "application" %>
     <%= yield :extra_footer %>
+
   </body>
 </html>
