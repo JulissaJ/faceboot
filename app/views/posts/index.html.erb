@@ -12,7 +12,7 @@
     <% @posts.reverse.each do |post| %>
     <div class='post media'>
       <div class="media-img">
-        <%= image_tag(post.user.image_url(:image))%>
+        <%= link_to (image_tag(post.user.image_url(:image))), user_path(post.user)%>
       </div>
       <div class ='media-body'>
       <h5><%= post.user.first_name %></h5>

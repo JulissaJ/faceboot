@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="css/app.css" />
+    <!-- <link rel="stylesheet" href="css/app.css" /> -->
   </head>
 
   <body>
@@ -29,7 +29,7 @@
                       <li class="divider"></li>
                       <li class='active'><%= link_to "Sign In", new_user_session_path %></li>
                       <% else %>
-                      <li class ='active'> <%= image_tag(current_user.image_url(:image))%></li>
+                      <li> <%= link_to (image_tag(current_user.image_url(:image))), user_path(current_user)%></li>
                       <li class='active'><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 
 
