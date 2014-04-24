@@ -23,7 +23,7 @@ feature 'user can add a comment to a post', %Q{
       visit post_path(post)
       click_link 'Add Comment'
       fill_in 'Comment', with: 'Wow, that happened to me too!'
-      click_on 'Add Comment'
+      click_on 'Create Comment'
 
 
       expect(Comment.count).to eq(prev_count + 1)

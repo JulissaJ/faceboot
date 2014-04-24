@@ -20,7 +20,7 @@ feature 'user adds a post to their wall', %Q{As a user
     scenario 'successfully adds a posting' do
       prev_count = Post.count
       visit posts_path
-      fill_in 'Content', with: "Today at LaunchAcademy I learned how to do all these cool things"
+      fill_in 'Add a post', with: "Today at LaunchAcademy I learned how to do all these cool things"
 
       click_on 'Create Post'
 
@@ -31,7 +31,7 @@ feature 'user adds a post to their wall', %Q{As a user
 
     scenario 'with invalid attributes' do
       visit posts_path
-      fill_in 'Content', with: ''
+      fill_in 'Add a post', with: ''
 
       click_on 'Create Post'
       expect(page).to have_content 'Post can\'t be blank'
