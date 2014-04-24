@@ -1,6 +1,31 @@
-<%= @post.content %><br>
+
+    <div class='post media'>
+      <div class="media-img">
+        <%= image_tag(@post.user.image_url(:image))%>
+      </div>
+      <div class = 'media-body'>
+        <h5><%= @post.user.first_name %></h5>
+        <p><%= @post.content %></p>
+      </div>
+    </div>
+
+
+        <% if @post.comments.present? %>
+
+            <% @post.comments.each do |comment| %>
+              <div class="media-img">
+                <%= image_tag(comment.user.image_url(:image))%>
+              </div>
+              <div class ='media-body'>
+                <h5><%=comment.user.first_name%></h5>
+                <p><%= comment.body %></p>
+              </div>
+              <%end%>
+            <%end%>
 
 
 
-<%= link_to "Back to posts", posts_path %></br>
-<%= link_to 'Add Comment', new_post_comment_path(@post) %>
+<ul class='inline-list'>
+  <li><%= link_to "Back to posts", posts_path %></li>
+  <li><%= link_to 'Add Comment', new_post_comment_path(@post) %></li>
+</ul>

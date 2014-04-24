@@ -3,5 +3,5 @@
 
 <%= simple_form_for [@post, @comment] do |f| %>
   <%= f.input :body, label: 'Comment' %>
-  <%= f.button :submit, 'Add Comment' %>
+  <%= f.submit class: 'button new-comment' %>
 <% end %>
