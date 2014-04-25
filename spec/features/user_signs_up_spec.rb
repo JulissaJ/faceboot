@@ -13,9 +13,12 @@ feature 'user signs up' , %Q{
     fill_in 'Last Name', with: 'Baggins'
     fill_in "Username", with: "dragonburglar"
     fill_in "Email", with: "dragonburglar@gmail.com"
+    fill_in "Write about yourself!", with: 'This is my about me'
+    select "Launch Academy", from: 'Bootcamp'
     fill_in 'user_password', with: "password"
     fill_in "Password confirmation", with: "password"
     click_on "Sign Up"
+
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
     expect(page).to have_content("Sign Out")

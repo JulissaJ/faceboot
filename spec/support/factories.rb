@@ -11,6 +11,8 @@ FactoryGirl.define do
     end
     password 'password'
     password_confirmation 'password'
+    bio 'about myself'
+    bootcamp 'Launch Academy'
   end
 
    factory :post do

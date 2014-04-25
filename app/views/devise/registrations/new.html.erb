@@ -8,9 +8,11 @@
     <%= f.input :last_name, required: true, autofocus: true, label: 'Last Name' %>
     <%= f.input :username, required: true %>
     <%= f.input :email, required: true %>
-    <%= f.file_field :image %>
+    <%= f.input :image, as: :file %>
     <%= f.input :password, required: true %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :bio, autofocus: true, label: 'Write about yourself!' %>
+    <%= f.input :bootcamp, :collection => [ "Launch Academy", "General Assembly", "Metis", "Startup Institute"] %>
   </div>
 
   <div class="form-actions">
