@@ -15,7 +15,7 @@
   <body>
     <% if request.env['PATH_INFO'] != new_user_registration_path && request.env['PATH_INFO'] != '/users' %>
           <div class="contain-to-grid">
-            <nav class= 'top-bar'>
+            <nav class= 'top-bar' data-topbar>
                   <ul class= 'title-area'>
                     <li class="name">
                       <h1><%= link_to "Faceboot", posts_path %> </h1>
@@ -24,15 +24,18 @@
                   <section class="top-bar-section">
                     <ul class="right">
                       <% if !user_signed_in? %>
-
-                      <li class='active'><%= link_to "Sign Up", new_user_registration_path %></li>
-                      <li class="divider"></li>
-                      <li class='active'><%= link_to "Sign In", new_user_session_path %></li>
+                        <li class='active'><%= link_to "Sign Up", new_user_registration_path %></li>
+                        <li class="divider"></li>
+                        <li class='active'><%= link_to "Sign In", new_user_session_path %></li>
                       <% else %>
-                      <li> <%= link_to (image_tag(current_user.image_url(:image))), user_path(current_user)%></li>
-                      <li class='active'><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                        <li class="has-dropdown">
+                          <%= link_to (image_tag(current_user.image_url(:image))), user_path(current_user)%>
 
-
+                            <ul class="dropdown">
+                              <li><%=link_to "Account Settings", edit_user_registration_path %></li>
+                            </ul>
+                         </li>
+                        <li class='active'><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                       <% end %>
               <% end %>
             </ul>
@@ -47,7 +50,7 @@
           <div class="favorites">
             <h5>Local Bootcamps</h5>
             <ul class="side-nav">
-              <li><a href="www.launchacademy.com">Launch Academy</a></li>
+              <li><a href="https://www.launchacademy.com">Launch Academy</a></li>
               <li><a href="https://generalassemb.ly/">General Assembly</a></li>
               <li><a href="http://www.thisismetis.com/">Metis</a></li>
               <li><a href="http://www.startupinstitute.com/">Startup Institute</a></li>
