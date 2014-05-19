@@ -1,7 +1,11 @@
 $('.posts').prepend(
-  '<div class="post media"><div class="media-img"><%= image_tag(@post.user.image_url(:image))%></div><div class ="media-body"><%= @post.content %><ul class="inline-list post-actions"><li><%= link_to "Comment", post_path(@post) %></li></ul></div>'
+  '<div class="post media"><div class="media-img"><%= link_to image_tag(@post.user.image_url(:image))%></div><div class ="media-body"><h5><%= @post.user.first_name %></h5><p><%= @post.content %></p><ul class="inline-list post-actions"><li><%= link_to "Comment", post_path(@post) %></li></ul></div>'
   );
+
 $('#post_title').val('');
 $('#post_content').val('');
+
+
+
 
   // '<%= escape_javascript(render @post) %>'
